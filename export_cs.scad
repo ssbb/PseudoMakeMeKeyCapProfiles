@@ -3,55 +3,65 @@ spru_n = 2;
 spacing = 18.0 ;
 spru_radius = 0.8;
 
-keycap_ids = ["cs_r3_1"];
+keycap_ids = ["cs_r3_1", "cs_r3_125", "cs_r3_1_bar", "cs_r3_225"];
 
-union() {
-//    translate([0, -spacing * 0, 0])  cs_spru(row=3, width= 1.25);
-    translate([0, -spacing * 1, 0])  cs_spru(keycap_ids=keycap_ids, w=1.25);
-//    translate([0, -spacing * 2, 0])  cs_spru(row=3, w=1.25, bar=true);
-//    translate([0, -spacing * 1, 0])  cs_spru(row=3, width=1.25);
-//    translate([0, -spacing * 2, 0])  cs_spru(row=3, width=1.50);
-//    translate([0, -spacing * 3, 0])  cs_spru(row=3, width=1.75);
-//    translate([0, -spacing * 4, 0])  cs_spru(row=3, width=2.00);
-//    translate([0, -spacing * 5, 0])  cs_spru(row=3, width=2.25);
-//
-//    translate([0, -spacing * 7, 0])  cs_spru(row=2);
-//    translate([0, -spacing * 1, 0])  cs_spru(row=2, width=1.25);
-//    translate([0, -spacing * 9, 0])  cs_spru(row=2, width=1.50);
-//    translate([0, -spacing * 10, 0])  cs_spru(row=2, width=1.75);
-//    translate([0, -spacing * 11, 0])  cs_spru(row=2, width=2.00);
-//    translate([0, -spacing * 12, 0])  cs_spru(row=2, width=2.25);
-}
+    translate([0, -spacing * 1, 0])  cs_spru(keycap_ids=keycap_ids, spacing=spacing);
 
 
+available_keycaps = [
+    // keycap_id, keyID, width, mirror, homing dots, homing bar
 
-function selector(item) = [
-  for (spec = available_specs)
-  if (spec[0] == item)
-  spec
+    // Top and bottom rows (R2)
+    ["cs_r2_1",          0, 1.00, false, false, false],
+    ["cs_r2_125",        5, 1.25, false, false, false],
+    ["cs_r2_15",         7, 1.50, false, false, false],
+    ["cs_r2_175",        9, 1.75, false, false, false],
+    ["cs_r2_2",          7, 2.00, false, false, false],
+    ["cs_r2_225",        7, 2.25, false, false, false],
+
+    // Middle Rows (R3)
+    ["cs_r3_1",          1, 1.00, false, false, false],
+    ["cs_r3_1_dot",      1, 1.00, false, true,  false],
+    ["cs_r3_1_bar",      1, 1.00, false, false, true],
+    ["cs_r3_125",        6, 1.25, false, false, false],
+    ["cs_r3_125_dot",    6, 1.25, false, true,  false],
+    ["cs_r3_125_bar",    6, 1.25, false, false, true],
+    ["cs_r3_15",         8, 1.50, false, false, false],
+    ["cs_r3_175",       10, 1.75, false, false, false],
+    ["cs_r3_2",         12, 2.00, false, false, false],
+    ["cs_r3_225",       14, 2.25, false, false, false],
 ];
 
-module cs_spru(keycap_ids, width=1, radius=spru_radius) {
-    echo ("Keycap ids: ", keycap_ids, " width: ", width, " radius: ", radius);
+function get_keycap(keycap_id) = [
+  for (keycap = available_keycaps)
+  if (keycap[0] == keycap_id)
+  keycap
+];
 
-    if (n > 1) {
+module cs_spru(keycap_ids, spacing=18, radius=spru_radius) {
+    echo ("Keycap ids: ", keycap_ids, " radius: ", radius);
+
+    if (len(keycap_ids) > 1) {
         union() {
-            for (i = [0 : n - 1]){
-                translate([i * spacing * width, 0, 0])
+            for (i = [0 : len(keycap_ids) - 1]){
+
+                keycap_id = keycap_ids[i];
+
+                translate([i * spacing, 0, 0])
                 mirror([0,0,0])
-                cs_keycap("cs_r2_1");
+                cs_keycap(keycap_id);
             }
 
-            for (i = [0 : n - 1 - 1]){
-                translate([(i) * spacing * width, 0, 0])
-                translate([spacing / 2 + 1, 0, -0.9 * spru_radius])
+            for (i = [0 : len(keycap_ids) - 2]){
+                translate([(i) * spacing + spacing / 2 - 1.5, 0, 0])
+                translate([0, 0, -0.9 * radius])
                 rotate([0, 90, 0])
                 cylinder(h = 3, r = spru_radius, $fn=12);
             }
         }
     }
     else {
-        translate([i * spacing, 0, 0])
+        translate([spacing, 0, 0])
         mirror([0,0,0])
         cs_keycap(keycap_ids[0]);
     }
@@ -59,29 +69,37 @@ module cs_spru(keycap_ids, width=1, radius=spru_radius) {
 
 module cs_keycap(keycap_id) {
 
-    w=0;
+    keycap = get_keycap(keycap_id)[0];
+    if (keycap == undef) {
+        echo ("Keycap id not found");
+        echo(keycap_id=keycap_id);
+        assert(keycap_id == undef);
+    }
+    keycap_key_id = keycap[1];
+    keycap_width = keycap[2];
+    keycap_mirrored = keycap[3];
+    keycap_dot = keycap[4];
+    keycap_bar = keycap[5];
+    echo ("building: ", keycap, " width: ", keycap_width, " keycap_key_id: ", keycap_key_id);
 
-    // Top and bottom rows (R2)
-    if      (keycap_id == "cs_r2_1"      ) {cs_default( 0); w=1;}
-    else if (keycap_id == "cs_r2_125"    ) {cs_default( 5); w=1.25;}
-    else if (keycap_id == "cs_r2_15"     ) {cs_default( 7); w=1.5;}
-    else if (keycap_id == "cs_r2_175"    ) {cs_default( 9); w=1.75;}
-    else if (keycap_id == "cs_r2_2"      ) {cs_default(11); w=2;}
-    else if (keycap_id == "cs_r2_225"    ) {cs_default(13); w=2.25;}
+    if(keycap_width > 1 && keycap_mirrored == true) {
 
-    // Middle Rows (R3)
-    else if (keycap_id == "cs_r3_1"      ) {cs_default( 1); w=1;}
-    else if (keycap_id == "cs_r3_1_dot"  ) {cs_default( 1, dot=true); w=1;}
-    else if (keycap_id == "cs_r3_1_bar"  ) {cs_default( 1, bar=true); w=1;}
-    else if (keycap_id == "cs_r3_125"    ) {cs_default( 6); width = 1.25;}
-    else if (keycap_id == "cs_r3_125_dot") {cs_default( 6, dot=true); w=1.25;}
-    else if (keycap_id == "cs_r3_125_bar") {cs_default( 6, bar=true); w=1.25;}
-    else if (keycap_id == "cs_r3_15"     ) {cs_default( 8); w=1.5;}
-    else if (keycap_id == "cs_r3_175"    ) {cs_default(10); w=1.75;}
-    else if (keycap_id == "cs_r3_2"      ) {cs_default(12); w=2;}
-    else if (keycap_id == "cs_r3_225"    ) {cs_default(14); w=2.25;}
-    else {
-        assert(false, concat("The keycap_id ", keycap_id, " is unknown."));
+        mirror(0, 1, 0)
+        rotate([0, 0, 90])
+        translate([0, 0.5, 0])
+            cs_default(keycap_key_id, dot=keycap_dot, bar=keycap_bar);
+    } else if(keycap_width > 1 && keycap_mirrored == false) {
+
+        rotate([0, 0, 90])
+        translate([0, 0.5, 0])
+            cs_default(keycap_key_id, dot=keycap_dot, bar=keycap_bar);
+    } else if(keycap_width <= 1 && keycap_mirrored == true) {
+
+        mirror(0, 1, 0)
+            cs_default(keycap_key_id, dot=keycap_dot, bar=keycap_bar);
+    } else {
+
+        cs_default(keycap_key_id, dot=keycap_dot, bar=keycap_bar);
     }
 }
 
