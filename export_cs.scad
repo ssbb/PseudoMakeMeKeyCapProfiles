@@ -3,10 +3,12 @@ spru_n = 2;
 spacing = 18.0 ;
 spru_radius = 0.8;
 
+keycap_ids = ["cs_r3_1"];
+
 union() {
 //    translate([0, -spacing * 0, 0])  cs_spru(row=3, width= 1.25);
-    translate([0, -spacing * 1, 0])  cs_spru(row=3, width = 1.25, dot=true);
-    translate([0, -spacing * 2, 0])  cs_spru(row=3, width = 1.25, bar=true);
+    translate([0, -spacing * 1, 0])  cs_spru(keycap_ids=keycap_ids, w=1.25);
+//    translate([0, -spacing * 2, 0])  cs_spru(row=3, w=1.25, bar=true);
 //    translate([0, -spacing * 1, 0])  cs_spru(row=3, width=1.25);
 //    translate([0, -spacing * 2, 0])  cs_spru(row=3, width=1.50);
 //    translate([0, -spacing * 3, 0])  cs_spru(row=3, width=1.75);
@@ -21,15 +23,23 @@ union() {
 //    translate([0, -spacing * 12, 0])  cs_spru(row=2, width=2.25);
 }
 
-module cs_spru(row, n=spru_n, width=1, radius=spru_radius, dot=false, bar=false) {
-    echo ("Row", row, "width", width);
 
-    if (n > 0) {
+
+function selector(item) = [
+  for (spec = available_specs)
+  if (spec[0] == item)
+  spec
+];
+
+module cs_spru(keycap_ids, width=1, radius=spru_radius) {
+    echo ("Keycap ids: ", keycap_ids, " width: ", width, " radius: ", radius);
+
+    if (n > 1) {
         union() {
             for (i = [0 : n - 1]){
                 translate([i * spacing * width, 0, 0])
                 mirror([0,0,0])
-                cs_keycap(row=row, width=width, dot=dot, bar=bar);
+                cs_keycap("cs_r2_1");
             }
 
             for (i = [0 : n - 1 - 1]){
@@ -40,34 +50,44 @@ module cs_spru(row, n=spru_n, width=1, radius=spru_radius, dot=false, bar=false)
             }
         }
     }
-    else if (spru_n == 0) {
+    else {
         translate([i * spacing, 0, 0])
         mirror([0,0,0])
-        cs_keycap(row=row, width=width, dot=dot);
+        cs_keycap(keycap_ids[0]);
     }
 }
 
-module cs_keycap(row, width=1, dot=false) {
+module cs_keycap(keycap_id) {
 
-    if      (row == 2 && width == 1   ) {cs_default( 0);}
-    else if (row == 2 && width == 1.25) {cs_default( 5);}
-    else if (row == 2 && width == 1.5 ) {cs_default( 7);}
-    else if (row == 2 && width == 1.75) {cs_default( 9);}
-    else if (row == 2 && width == 2)    {cs_default(11);}
-    else if (row == 2 && width == 2.25) {cs_default(13);}
+    w=0;
 
-    else if (row == 3 && width == 1   ) {cs_default( 1, dot=dot, bar=bar);}
-    else if (row == 3 && width == 1.25) {cs_default( 6, dot=dot, bar=bar);}
-    else if (row == 3 && width == 1.5 ) {cs_default( 8);}
-    else if (row == 3 && width == 1.75) {cs_default(10);}
-    else if (row == 3 && width == 2)    {cs_default(12);}
-    else if (row == 3 && width == 2.25) {cs_default(14);}
+    // Top and bottom rows (R2)
+    if      (keycap_id == "cs_r2_1"      ) {cs_default( 0); w=1;}
+    else if (keycap_id == "cs_r2_125"    ) {cs_default( 5); w=1.25;}
+    else if (keycap_id == "cs_r2_15"     ) {cs_default( 7); w=1.5;}
+    else if (keycap_id == "cs_r2_175"    ) {cs_default( 9); w=1.75;}
+    else if (keycap_id == "cs_r2_2"      ) {cs_default(11); w=2;}
+    else if (keycap_id == "cs_r2_225"    ) {cs_default(13); w=2.25;}
 
+    // Middle Rows (R3)
+    else if (keycap_id == "cs_r3_1"      ) {cs_default( 1); w=1;}
+    else if (keycap_id == "cs_r3_1_dot"  ) {cs_default( 1, dot=true); w=1;}
+    else if (keycap_id == "cs_r3_1_bar"  ) {cs_default( 1, bar=true); w=1;}
+    else if (keycap_id == "cs_r3_125"    ) {cs_default( 6); width = 1.25;}
+    else if (keycap_id == "cs_r3_125_dot") {cs_default( 6, dot=true); w=1.25;}
+    else if (keycap_id == "cs_r3_125_bar") {cs_default( 6, bar=true); w=1.25;}
+    else if (keycap_id == "cs_r3_15"     ) {cs_default( 8); w=1.5;}
+    else if (keycap_id == "cs_r3_175"    ) {cs_default(10); w=1.75;}
+    else if (keycap_id == "cs_r3_2"      ) {cs_default(12); w=2;}
+    else if (keycap_id == "cs_r3_225"    ) {cs_default(14); w=2.25;}
+    else {
+        assert(false, concat("The keycap_id ", keycap_id, " is unknown."));
+    }
 }
 
 module cs_default(keyID, dot=false, bar=false) {
     echo("keyID", keyID)
-    keycap(
+    keycap_cs(
         keyID  = keyID, //change profile refer to KeyParameters Struct
         Stem   = true, //turns on shell and stems
         Dish = true,
