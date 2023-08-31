@@ -30,7 +30,21 @@ available_keycaps = [
     ["cs_r3_2",         1, 12, 2.00,   0,  0, false, false, false],
     ["cs_r3_225",       1, 14, 2.25,   0,  0, false, false, false],
 
-    // Convex
+    // Levee
+    ["cs_r2_levee_l", 3,  0, 1.00,   0,  0, false, false, false],
+    ["cs_r2_levee_r", 3,  0, 1.00,   0,  0, true, false, false],
+    ["cs_r3_levee_l", 3,  1, 1.00,   0,  0, false, false, false],
+    ["cs_r3_levee_r", 3,  1, 1.00,   0,  0, true, false, false],
+    ["cs_r3_levee_l_dot", 3,  1, 1.00,   0,  0, false, true, false],
+    ["cs_r3_levee_r_dot", 3,  1, 1.00,   0,  0, true, true, false],
+
+    // Levee Corners
+    ["cs_r2_levee_c_l", 1,  3, 1.00,   0,  0, false, false, false],
+    ["cs_r2_levee_c_r", 1,  3, 1.00,   0,  0, true, false, false],
+    ["cs_r2_levee_cs_l",1,  4, 1.00,   0,  0, false, false, false],
+    ["cs_r2_levee_cs_r",1,  4, 1.00,   0,  0, true, false, false],
+
+    // Concave
     ["cs_r2x_1",        2,  0, 1.00,   0,  0, false, false, false],
     ["cs_r2x_1_bottom", 2,  0, 1.00, 180,  0, false, false, false],
     ["cs_r3x_1",        2,  1, 1.00,   0,  0, false, false, false],
