@@ -13,7 +13,7 @@ mirror([1,0,0])keycap_cs_thumb(
   keyID   = 3, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
-  StemRot = 0,//change stem orientation by deg
+  StemRot = 90,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
   visualizeDish = false, // turn on debug visual of Dish
@@ -367,7 +367,11 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
             translate([Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
             translate([-Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
           }
-          translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
+
+          // Adding this condition fixes the stem StemRotation for 1.5u thumb keys
+          if(StemRot == 0) {
+            translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
+          }
        }
 
      }
