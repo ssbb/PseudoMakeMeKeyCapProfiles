@@ -1,8 +1,8 @@
 # These options require OpenScad snapshot
-OPENSCAD="/Applications/OpenSCAD Snapshot.app/Contents/MacOS/OpenSCAD" --enable=fast-csg --enable=lazy-union
+OPENSCAD="/Applications/OpenSCAD Snapshot.app/Contents/MacOS/OpenSCAD" --enable=manifold --export-format binstl
 
 # This will work with the stable openscad
-# OPENSCAD="/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
+#OPENSCAD="/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
 
 SRC_DIR := .
 STL_DIR := stl
