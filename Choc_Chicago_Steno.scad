@@ -10,7 +10,7 @@ use <skin.scad>
 //Choc Chord version Chicago Stenographer
 
 /*Tester */
-keycap(
+keycap_cs(
   keyID  = 6, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
@@ -257,7 +257,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, Stem = false, StemRot = 0, homeDot = false, homeBar = false, Stab = 0, Legends = false) {
+module keycap_cs(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, Stem = false, StemRot = 0, homeDot = false, homeBar = false, Stab = 0, Legends = false) {
   $fn = fn;
 
   //Set Parameters for dish shape

@@ -9,7 +9,7 @@ use <skin.scad>
 
 //NOTE: with sweep cuts, top surface may not be visible in review, it should be visible once rendered
 
-mirror([0,0,0])keycap(
+mirror([0,0,0])keycap_cs_convex(
   keyID  = 2, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
@@ -234,7 +234,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, csrossSection = false, Dish = true, Stem = false,StemRot = 0, homeDot = false, Stab = 0) {
+module keycap_cs_convex(keyID = 0, cutLen = 0, visualizeDish = false, csrossSection = false, Dish = true, Stem = false,StemRot = 0, homeDot = false, Stab = 0) {
 
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);
@@ -380,13 +380,13 @@ function sign_y(i,n) =
 //     ];
 //Choc Chord version Chicago Stenographer
 //#square([18.16, 18.16], center = true);
-//translate([0,19,0])keycap(keyID = 1, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = true, crossSection = false, homeDot = false, Legends = false);
+//translate([0,19,0])keycap_cs_convex(keyID = 1, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = true, crossSection = false, homeDot = false, Legends = false);
 //translate([0,0,0])lp_master_base(xu = 2, yu = 1 );
 //stem_cavity_negative(lp_key, x=1, y=1);
 //}
 //#translate([0,0,0])cube([14.5, 13.5, 10], center = true); // internal check
 //#translate([0,0,0])cube([17.5, 16.5, 10], center = true); // external check
-//translate([0,17,0])mirror([0,1,0])keycap(keyID = 0, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//translate([18,0,0])mirror([0,0,0])keycap(keyID = 0, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
-//n translate([0,19, 0])keycap(keyID = 3, cutLen = 0, Stem =true,  Dish = true, visualizeDish = true, crossSection = true, homeDot = false, Legends = false);
-// translate([0,38, 0])mirror([0,1,0])keycap(keyID = 2, cutLen = 0, Stem =true,  Dish = true, visualizeDish = false, crossSection = true, homeDot = false, Legends = false);
+//translate([0,17,0])mirror([0,1,0])keycap_cs_convex(keyID = 0, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
+//translate([18,0,0])mirror([0,0,0])keycap_cs_convex(keyID = 0, cutLen = 0, Stem =false,  Dish = true, Stab = 0 , visualizeDish = false, crossSection = false, homeDot = false, Legends = false);
+//n translate([0,19, 0])keycap_cs_convex(keyID = 3, cutLen = 0, Stem =true,  Dish = true, visualizeDish = true, crossSection = true, homeDot = false, Legends = false);
+// translate([0,38, 0])mirror([0,1,0])keycap_cs_convex(keyID = 2, cutLen = 0, Stem =true,  Dish = true, visualizeDish = false, crossSection = true, homeDot = false, Legends = false);
