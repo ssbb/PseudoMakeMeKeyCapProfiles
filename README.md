@@ -50,6 +50,8 @@ I expanded on those efforts in the following ways...
 * Fixed the 1.5u inner thumb key that is used in many corne-like boards
 * Added documentation on how to print the keycaps
 
+![Screenshot of thumbs stl](Photo/thumb_keys_stl.png)
+
 ## Documentation
 
 ### Keycap Types
