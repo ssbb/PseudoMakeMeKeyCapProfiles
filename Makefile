@@ -20,6 +20,13 @@ all: $(STL_TARGETS)
 $(STL_DIR)/%.stl: $(SRC_DIR)/export_%.scad $(SRC_DIR)/gen_sprued_keycaps.scad $(SRC_DIR)/Choc_Chicago_Steno.scad $(SRC_DIR)/Choc_Chicago_Steno_Thumb.scad $(SRC_DIR)/Choc_Chicago_Steno_Convex.scad
 	$(OPENSCAD) --render -o $@ $<
 
+# Target to generate single key stls
+AVAILABLE_KEY_IDS := $(shell perl -n -e'/\["(cs_.*)",/ && print "$$1\n"' < gen_sprued_keycaps.scad)
+singles:
+	@for id in $(AVAILABLE_KEY_IDS); do \
+		$(OPENSCAD) --render -Dkeycap_id=\"$$id\" -o $(STL_DIR)/single_keys/$$id.stl gen_single_keycap.scad; \
+	done
+
 # Remove generated STL files
 clean:
 	rm -f $(STL_TARGETS)
