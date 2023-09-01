@@ -4,14 +4,37 @@ This fork combines multiple chicago stenographer keycaps with sprues into one fi
 
 If you like these keycaps after trying the 3D printed version, [consider buying artisan verions from the creator at asymplex.xyz](https://www.asymplex.xyz).
 
+## Table Of Contents
+1. [Table Of Contents](#table-of-contents)
+2. [Photos](#photos)
+    1. [Render](#render)
+    2. [Printed](#printed)
+3. [About this fork](#about-this-fork)
+4. [Documentation](#documentation)
+    1. [Keycap Types](#keycap-types)
+        1. [R2 Keycaps - Top and bottom](#r2-keycaps---top-and-bottom)
+        2. [R3 Keycaps - Middle rows and home row](#r3-keycaps---middle-rows-and-home-row)
+        3. [Thumb Keycaps](#thumb-keycaps)
+        4. [1.5u Thumb Key](#15u-thumb-key)
+        5. [Concave Keycaps](#concave-keycaps)
+        6. [Levee Keycaps](#levee-keycaps)
+    2. [What to print...](#what-to-print)
+        1. [If you have a 5x3 row board (Such as the corne without the outer coulmn)](#if-you-have-a-5x3-row-board-such-as-the-corne-without-the-outer-coulmn)
+        2. [If you have a 6x3 row board (Such as the corne WITH the outer coulmn)](#if-you-have-a-6x3-row-board-such-as-the-corne-with-the-outer-coulmn)
+        3. [If you have a 6x4 board with a num row...](#if-you-have-a-6x4-board-with-a-num-row)
+    3. [How to order on JLCPCB](#how-to-order-on-jlcpcb)
+        1. [JLCPCB Shopping Cart Example](#jlcpcb-shopping-cart-example)
+    4. [How to create custom sets of keycaps](#how-to-create-custom-sets-of-keycaps)
+
+
 ## Photos
 
-### Chicago Stenographer
+### Render
 
 Subtly sculpted choc spaced low profile
 ![CS](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS.png)
 
-#### Standard
+### Printed
 
 ![Look](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS_gergo.jpg)
 
@@ -95,7 +118,7 @@ You can find all files in the stl directory. You can also look at the `export_cs
 
 * 2x `cs_row_r2_top_bottom.scad`
 * 1x `cs_row_r3_homerow_bar.scad` or `cs_row_r3_homerow_dots.scad` (different homing keys)
-    * Or the `cs_row_r3_regular.scad` and `cs_row_r3_homing_only.stl` to get both homing key variations
+  * Or the `cs_row_r3_regular.scad` and `cs_row_r3_homing_only.stl` to get both homing key variations
 * 1x cs_row_thumbs.scad`
 
 #### If you have a 6x3 row board (Such as the corne WITH the outer coulmn)
@@ -131,4 +154,28 @@ All of the above, PLUS...
   * Without this they will be a "textured gray"
 * Make sure to select the correct Quantity
 
+The total for a 6x4 board with all the optional stuff will cost $23.86 + shipping.
 
+#### JLCPCB Shopping Cart Example
+
+![JLCPCB Shopping Cart Example](Photo/jlcpcb_shopping_cart.png)
+
+### How to create custom sets of keycaps
+
+* Install OpenSCAD
+  * The [snaphot version](https://openscad.org/downloads.html#snapshots) is recommended for performance reasons
+  * If it crashes, [try an older version of the snapshot](https://files.openscad.org/snapshots/)
+* Set up the dev environment
+  * Adjust the Makefile with the path to your OpenSCAD installation
+  * Unzip the `libraries.zip` into your [OpenSCAD library path](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Libraries)
+* Create your keycap set
+  * Copy one of the files starting with `export_`
+  * Adjust the keycaps you want to use. Available options are in `gen_sprued_keycaps.scad`
+  * Keep in mind that jlcpcb only allows a maximum of 10 keycaps per file
+* Generate STLs
+  * Run `make` and it will generate all missing STLs
+  * Alternatively you can also select which file to generate by running something like `make stl/cs_row_thumbs.stl`, but keep in mind that you have to use the file name of the final stl file and not of the source `.scad` file
+
+Alternatively you can also run the GUI version, but it's a bit slow.
+
+You can speed it up by enabling the `manifold` options in `Preferences -> Features` (Snapshot version only).
