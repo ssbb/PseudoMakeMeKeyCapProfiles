@@ -54,7 +54,7 @@ available_keycaps = [
     ["cs_t_1",              3,  2, 1.00,   0,  0, false, false, false],
     ["cs_t_1_mirrored",     3,  2, 1.00,   0,  0, true,  false, false],
     ["cs_t_15",             3,  3, 1.00,   0, 90, false, false, false],
-    ["cs_t_15_mirrored"     3,  3, 1.00,   0, 90, true,  false, false],
+    ["cs_t_15_mirrored",    3,  3, 1.00,   0, 90, true,  false, false],
     ["cs_t_2",              3,  4, 1.00,   0, 90, false, false, false],
     ["cs_t_2_mirrored",     3,  4, 1.00,   0, 90, true,  false, false],
 ];

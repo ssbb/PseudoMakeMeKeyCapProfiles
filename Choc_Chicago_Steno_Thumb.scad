@@ -19,6 +19,7 @@ mirror([1,0,0])keycap_cs_thumb(
   visualizeDish = false, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
   homeDot = false, //turn on homedots
+  homeBar = false, //turn on homebar
   Legends = false
 );
 
@@ -323,7 +324,7 @@ function TanTransition(t, keyID) = pow(t/stepsize,TanArcExpo(keyID) )*Transition
 
 
 ///----- KEY Builder Module
-module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, SecondaryDish = false, Stem = false, StemRot = 0, homeDot = false, Stab = 0, Legends = false) {
+module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, SecondaryDish = false, Stem = false, StemRot = 0, homeDot = false, homeBar = false, Stab = 0, Legends = false) {
 
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);
@@ -414,7 +415,34 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
      }
   }
   //Homing dot
-  if(homeDot == true)translate([0,0,KeyHeight(keyID)-DishHeightDif(keyID)-.25])sphere(d = 1);
+  // if(homeDot == true)translate([0,0,KeyHeight(keyID)-DishHeightDif(keyID)-.25])sphere(d = 1);
+
+  // The same homedots as on the main profile
+  if(homeDot == true){
+      r = 0.5;
+      x = 2;
+      y = -4.5;
+      z = KeyHeight(keyID)-DishHeightDif(keyID) + 0.3 * r;
+
+      translate([x, y, z])sphere($fn=64, r);
+      translate([-x, y, z])sphere($fn=64, r);
+  }
+
+  if(homeBar == true) {
+    homey = -4.5;
+    homez = KeyHeight(keyID)-DishHeightDif(keyID) + 0.15;
+    l = 5.5;
+    r = 0.5;
+
+    translate([0, homey, homez])
+    rotate([0,90,0])
+    translate([0, 0, -l / 2])
+    union () {
+        translate([0, 0, r]) sphere(r = r);
+        translate([0, 0, r])cylinder(h = l -r * 2, r= r);
+        translate([0, 0, l - r])sphere(r = r);
+    };
+  };
 }
 
 //------------------stems
