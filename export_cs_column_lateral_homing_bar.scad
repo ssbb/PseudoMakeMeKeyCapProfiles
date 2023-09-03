@@ -1,4 +1,4 @@
-// Levee keycaps don't have the slope on one side. This makes it easier to
+// Lateral keycaps don't have the slope on one side. This makes it easier to
 // slide from one keycap to the other.
 //
 // Some people prefer this for the inner or outer columns to avoid lifting up
