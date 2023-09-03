@@ -273,10 +273,10 @@ module keycap_cs_convex(keyID = 0, cutLen = 0, visualizeDish = false, csrossSect
     //Cuts
 
     //Fonts
-    if(Legends ==  true){
-          #rotate([-XAngleSkew(keyID),YAngleSkew(keyID),ZAngleSkew(keyID)])translate([-1,-5,KeyHeight(keyID)-2.5])linear_extrude(height = 1)text( text = "ver2", font = "Constantia:style=Bold", size = 3, valign = "center", halign = "center" );
-      //  #rotate([-XAngleSkew(keyID),YAngleSkew(keyID),ZAngleSkew(keyID)])translate([0,-3.5,0])linear_extrude(height = 0.5)text( text = "Me", font = "Constantia:style=Bold", size = 3, valign = "center", halign = "center" );
-      }
+    // if(Legends ==  true){
+    //       #rotate([-XAngleSkew(keyID),YAngleSkew(keyID),ZAngleSkew(keyID)])translate([-1,-5,KeyHeight(keyID)-2.5])linear_extrude(height = 1)text( text = "ver2", font = "Constantia:style=Bold", size = 3, valign = "center", halign = "center" );
+    //   //  #rotate([-XAngleSkew(keyID),YAngleSkew(keyID),ZAngleSkew(keyID)])translate([0,-3.5,0])linear_extrude(height = 0.5)text( text = "Me", font = "Constantia:style=Bold", size = 3, valign = "center", halign = "center" );
+    //   }
    //Dish Shape
     if(Dish == true){
      if(visualizeDish == false){
@@ -287,9 +287,9 @@ module keycap_cs_convex(keyID = 0, cutLen = 0, visualizeDish = false, csrossSect
       #translate([-TopWidShift(keyID),-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90-XAngleSkew(keyID),270-ZAngleSkew(keyID)])skin(BackCurve);
      }
    }
-     if(crossSection == true) {
-       translate([0,-15,-.1])cube([15,30,15]);
-     }
+    //  if(crossSection == true) {
+    //    translate([0,-15,-.1])cube([15,30,15]);
+    //  }
   }
   //Homing dot
   if(homeDot == true)translate([0,0,KeyHeight(keyID)-DishHeightDif(keyID)-.25])sphere(d = dotRadius);
