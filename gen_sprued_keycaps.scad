@@ -41,12 +41,6 @@ available_keycaps = [
     ["cs_r3_lateral_r_dot", 3,  1, 1.00,   0,  0, true,  true,  false],
     ["cs_r3_lateral_r_bar", 3,  1, 1.00,   0,  0, true,  false, true],
 
-    // Levee Corners
-    ["cs_r2_levee_c_l",     1,  3, 1.00,   0,  0, false, false, false],
-    ["cs_r2_levee_c_r",     1,  3, 1.00,   0,  0, true,  false, false],
-    ["cs_r2_levee_cs_l",    1,  4, 1.00,   0,  0, false, false, false],
-    ["cs_r2_levee_cs_r",    1,  4, 1.00,   0,  0, true,  false, false],
-
     // Concave
     ["cs_r2x_1",            2,  0, 1.00,   0,  0, false, false, false],
     ["cs_r2x_1_bottom",     2,  0, 1.00, 180,  0, false, false, false],
