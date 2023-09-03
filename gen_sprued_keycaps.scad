@@ -11,52 +11,52 @@ available_keycaps = [
     // keycap_id, variation, keyID, width, rot, stemRot, mirror, homing dots, homing bar
 
     // Top and bottom rows (R2)
-    ["cs_r2_1",          1, 0, 1.00,   0,  0, false, false, false],
-    ["cs_r2_125",        1, 5, 1.25,   0,  0, false, false, false],
-    ["cs_r2_15",         1, 7, 1.50,   0,  0, false, false, false],
-    ["cs_r2_175",        1, 9, 1.75,   0,  0, false, false, false],
-    ["cs_r2_2",          1, 7, 2.00,   0,  0, false, false, false],
-    ["cs_r2_225",        1, 7, 2.25,   0,  0, false, false, false],
+    ["cs_r2_1",             1, 0, 1.00,   0,  0, false, false, false],
+    ["cs_r2_125",           1, 5, 1.25,   0,  0, false, false, false],
+    ["cs_r2_15",            1, 7, 1.50,   0,  0, false, false, false],
+    ["cs_r2_175",           1, 9, 1.75,   0,  0, false, false, false],
+    ["cs_r2_2",             1, 7, 2.00,   0,  0, false, false, false],
+    ["cs_r2_225",           1, 7, 2.25,   0,  0, false, false, false],
 
     // Middle Rows (R3)
-    ["cs_r3_1",         1,  1, 1.00,   0,  0, false, false, false],
-    ["cs_r3_1_dot",     1,  1, 1.00,   0,  0, false, true,  false],
-    ["cs_r3_1_bar",     1,  1, 1.00,   0,  0, false, false, true],
-    ["cs_r3_125",       1,  6, 1.25,   0,  0, false, false, false],
-    ["cs_r3_125_dot",   1,  6, 1.25,   0,  0, false, true,  false],
-    ["cs_r3_125_bar",   1,  6, 1.25,   0,  0, false, false, true],
-    ["cs_r3_15",        1,  8, 1.50,   0,  0, false, false, false],
-    ["cs_r3_175",       1, 10, 1.75,   0,  0, false, false, false],
-    ["cs_r3_2",         1, 12, 2.00,   0,  0, false, false, false],
-    ["cs_r3_225",       1, 14, 2.25,   0,  0, false, false, false],
+    ["cs_r3_1",             1,  1, 1.00,   0,  0, false, false, false],
+    ["cs_r3_1_dot",         1,  1, 1.00,   0,  0, false, true,  false],
+    ["cs_r3_1_bar",         1,  1, 1.00,   0,  0, false, false, true],
+    ["cs_r3_125",           1,  6, 1.25,   0,  0, false, false, false],
+    ["cs_r3_125_dot",       1,  6, 1.25,   0,  0, false, true,  false],
+    ["cs_r3_125_bar",       1,  6, 1.25,   0,  0, false, false, true],
+    ["cs_r3_15",            1,  8, 1.50,   0,  0, false, false, false],
+    ["cs_r3_175",           1, 10, 1.75,   0,  0, false, false, false],
+    ["cs_r3_2",             1, 12, 2.00,   0,  0, false, false, false],
+    ["cs_r3_225",           1, 14, 2.25,   0,  0, false, false, false],
 
-    // Levee
-    ["cs_r2_levee_l", 3,  0, 1.00,   0,  0, false, false, false],
-    ["cs_r2_levee_r", 3,  0, 1.00,   0,  0, true, false, false],
-    ["cs_r3_levee_l", 3,  1, 1.00,   0,  0, false, false, false],
-    ["cs_r3_levee_r", 3,  1, 1.00,   0,  0, true, false, false],
-    ["cs_r3_levee_l_dot", 3,  1, 1.00,   0,  0, false, true, false],
-    ["cs_r3_levee_r_dot", 3,  1, 1.00,   0,  0, true, true, false],
+    // Lateral Columns
+    ["cs_r2_lateral_l",     3,  0, 1.00,   0,  0, false, false, false],
+    ["cs_r3_lateral_r",     3,  1, 1.00,   0,  0, true,  false, false],
+    ["cs_r3_lateral_l_dot", 3,  1, 1.00,   0,  0, false, true, false],
+    ["cs_r2_lateral_r",     3,  0, 1.00,   0,  0, true,  false, false],
+    ["cs_r3_lateral_l",     3,  1, 1.00,   0,  0, false, false, false],
+    ["cs_r3_lateral_r_dot", 3,  1, 1.00,   0,  0, true,  true, false],
 
     // Levee Corners
-    ["cs_r2_levee_c_l", 1,  3, 1.00,   0,  0, false, false, false],
-    ["cs_r2_levee_c_r", 1,  3, 1.00,   0,  0, true, false, false],
-    ["cs_r2_levee_cs_l",1,  4, 1.00,   0,  0, false, false, false],
-    ["cs_r2_levee_cs_r",1,  4, 1.00,   0,  0, true, false, false],
+    ["cs_r2_levee_c_l",     1,  3, 1.00,   0,  0, false, false, false],
+    ["cs_r2_levee_c_r",     1,  3, 1.00,   0,  0, true,  false, false],
+    ["cs_r2_levee_cs_l",    1,  4, 1.00,   0,  0, false, false, false],
+    ["cs_r2_levee_cs_r",    1,  4, 1.00,   0,  0, true,  false, false],
 
     // Concave
-    ["cs_r2x_1",        2,  0, 1.00,   0,  0, false, false, false],
-    ["cs_r2x_1_bottom", 2,  0, 1.00, 180,  0, false, false, false],
-    ["cs_r3x_1",        2,  1, 1.00,   0,  0, false, false, false],
-    ["cs_r3x_1_bottom", 2,  1, 1.00, 180,  0, false, false, false],
+    ["cs_r2x_1",            2,  0, 1.00,   0,  0, false, false, false],
+    ["cs_r2x_1_bottom",     2,  0, 1.00, 180,  0, false, false, false],
+    ["cs_r3x_1",            2,  1, 1.00,   0,  0, false, false, false],
+    ["cs_r3x_1_bottom",     2,  1, 1.00, 180,  0, false, false, false],
 
     // Thumbs
-    ["cs_t_1",          3,  2, 1.00,   0,  0, false, false, false],
-    ["cs_t_1_mirrored", 3,  2, 1.00,   0,  0, true, false, false],
-    ["cs_t_15",         3,  3, 1.00,   0, 90, false, false, false],
-    ["cs_t_15_mirrored",3,  3, 1.00,   0, 90, true, false, false],
-    ["cs_t_2",          3,  4, 1.00,   0, 90, false, false, false],
-    ["cs_t_2_mirrored", 3,  4, 1.00,   0, 90, true, false, false],
+    ["cs_t_1",              3,  2, 1.00,   0,  0, false, false, false],
+    ["cs_t_1_mirrored",     3,  2, 1.00,   0,  0, true,  false, false],
+    ["cs_t_15",             3,  3, 1.00,   0, 90, false, false, false],
+    ["cs_t_15_mirrored"     3,  3, 1.00,   0, 90, true,  false, false],
+    ["cs_t_2",              3,  4, 1.00,   0, 90, false, false, false],
+    ["cs_t_2_mirrored",     3,  4, 1.00,   0, 90, true,  false, false],
 ];
 
 function get_keycap(keycap_id) = [
@@ -88,8 +88,6 @@ module cs_spru(keycap_ids, spacing=18, radius=0.8) {
         }
     }
     else {
-        translate([spacing, 0, 0])
-        mirror([0,0,0])
         cs_keycap(keycap_ids[0]);
     }
 }
