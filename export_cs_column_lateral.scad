@@ -17,13 +17,13 @@ keycap_ids = [
     "cs_r2_lateral_l" , // Num Row
     "cs_r3_lateral_l",  // Top Alpha
     "cs_r3_lateral_l",  // Home Row
-    "cs_r2_lateral_l",  // Bottom Alpha
+    "cs_r4_lateral_l",  // Bottom Alpha
 
     // Right Side
     "cs_r2_lateral_r" , // Num Row
     "cs_r3_lateral_r",  // Top Alpha
     "cs_r3_lateral_r",  // Home Row
-    "cs_r2_lateral_r",  // Bottom Alpha
+    "cs_r4_lateral_r",  // Bottom Alpha
 
     // Homing
     "cs_r3_lateral_l_dot",    // Left Homing

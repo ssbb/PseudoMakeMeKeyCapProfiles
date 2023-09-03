@@ -10,8 +10,15 @@ module gen_sprued_keycaps(keycap_ids, spacing=18, spru_radius=0.8) {
 available_keycaps = [
     // keycap_id, variation, keyID, width, rot, stemRot, mirror, homing dots, homing bar
 
-    // Top and bottom rows (R2)
-    ["cs_r2_1",             1, 0, 1.00,   0,  0, false, false, false],
+    // Top and bottom rows (R2 / R4)
+    // R2 and R4 are the exact same keycap. You just rotate them by
+    // 180 degrees.
+    //
+    // But for easier visualization I added pre-rotated models.
+
+    ["cs_r2_1",             1, 0, 1.00, 180,  0, false, false, false],
+    ["cs_r4_1",             1, 0, 1.00,   0,  0, false, false, false],
+
     ["cs_r2_125",           1, 5, 1.25,   0,  0, false, false, false],
     ["cs_r2_15",            1, 7, 1.50,   0,  0, false, false, false],
     ["cs_r2_175",           1, 9, 1.75,   0,  0, false, false, false],
@@ -31,29 +38,38 @@ available_keycaps = [
     ["cs_r3_225",           1, 14, 2.25,   0,  0, false, false, false],
 
     // Lateral Columns
-    ["cs_r2_lateral_l",     3,  0, 1.00,   0,  0, false, false, false],
-    ["cs_r3_lateral_r",     3,  1, 1.00,   0,  0, true,  false, false],
+    ["cs_r2_lateral_l",     3,  0, 1.00, 180,  0, true,  false, false],
+    ["cs_r2_lateral_r",     3,  0, 1.00, 180,  0, false, false, false],
+    ["cs_r4_lateral_l",     3,  0, 1.00,   0,  0, false, false, false],
+    ["cs_r4_lateral_r",     3,  0, 1.00,   0,  0, true, false, false],
+
+    ["cs_r3_lateral_l",     3,  1, 1.00,   0,  0, false, false, false],
     ["cs_r3_lateral_l_dot", 3,  1, 1.00,   0,  0, false, true,  false],
     ["cs_r3_lateral_l_bar", 3,  1, 1.00,   0,  0, false, false, true],
 
-    ["cs_r2_lateral_r",     3,  0, 1.00,   0,  0, true,  false, false],
-    ["cs_r3_lateral_l",     3,  1, 1.00,   0,  0, false, false, false],
+    ["cs_r3_lateral_r",     3,  1, 1.00,   0,  0, true,  false, false],
     ["cs_r3_lateral_r_dot", 3,  1, 1.00,   0,  0, true,  true,  false],
     ["cs_r3_lateral_r_bar", 3,  1, 1.00,   0,  0, true,  false, true],
 
-    // Concave
-    ["cs_r2x_1",            2,  0, 1.00,   0,  0, false, false, false],
-    ["cs_r2x_1_bottom",     2,  0, 1.00, 180,  0, false, false, false],
+    // Convex
+    ["cs_r2x_1",            2,  0, 1.00, 180,  0, false, false, false],
+    ["cs_r4x_1",            2,  0, 1.00,   0,  0, false, false, false],
     ["cs_r3x_1",            2,  1, 1.00,   0,  0, false, false, false],
-    ["cs_r3x_1_bottom",     2,  1, 1.00, 180,  0, false, false, false],
 
     // Thumbs
-    ["cs_t_1",              3,  2, 1.00,   0,  0, false, false, false],
-    ["cs_t_1_mirrored",     3,  2, 1.00,   0,  0, true,  false, false],
-    ["cs_t_15",             3,  3, 1.00,   0, 90, false, false, false],
-    ["cs_t_15_mirrored",    3,  3, 1.00,   0, 90, true,  false, false],
-    ["cs_t_2",              3,  4, 1.00,   0, 90, false, false, false],
-    ["cs_t_2_mirrored",     3,  4, 1.00,   0, 90, true,  false, false],
+    ["cs_t_1_l",            3,  2, 1.00,   0,  0, false, false, false],
+    ["cs_t_1_r",            3,  2, 1.00,   0,  0, true,  false, false],
+    ["cs_t_15_l",           3,  3, 1.00,   0, 90, false, false, false],
+    ["cs_t_15_r",           3,  3, 1.00,   0, 90, true,  false, false],
+    ["cs_t_2_l",            3,  4, 1.00,   0, 90, false, false, false],
+    ["cs_t_2_r",            3,  4, 1.00,   0, 90, true,  false, false],
+
+    // Stem rotated thumbs for boards where the inner thumb switch is not
+    // rotated
+    ["cs_t_stem_rot_15_l",  3,  3, 1.00,   0,  0, false, false, false],
+    ["cs_t_stem_rot_15_r",  3,  3, 1.00,   0,  0, true,  false, false],
+    ["cs_t_stem_rot_2_l",   3,  4, 1.00,   0,  0, false, false, false],
+    ["cs_t_stem_rot_2_r",   3,  4, 1.00,   0,  0, true,  false, false],
 ];
 
 function get_keycap(keycap_id) = [

@@ -10,13 +10,13 @@ keycap_ids = [
     "cs_r2_1" , // Num Row
     "cs_r3_1",  // Top Alpha
     "cs_r3_1",  // Home Row
-    "cs_r2_1",  // Bottom Alpha
+    "cs_r4_1",  // Bottom Alpha
 
     // Right Keyboard Side
     "cs_r2_1" , // Num Row
     "cs_r3_1",  // Top Alpha
     "cs_r3_1",  // Home Row
-    "cs_r2_1",  // Bottom Alpha
+    "cs_r4_1",  // Bottom Alpha
 
     // Homing keys
     "cs_r3_1_bar",

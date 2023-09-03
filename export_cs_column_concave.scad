@@ -7,13 +7,13 @@ keycap_ids = [
     "cs_r2x_1" , // Num Row
     "cs_r3x_1",  // Top Alpha
     "cs_r3x_1",  // Home Row
-    "cs_r2x_1",  // Bottom Alpha
+    "cs_r4x_1",  // Bottom Alpha
 
     // Right Keyboard Side
     "cs_r2x_1" , // Num Row
     "cs_r3x_1",  // Top Alpha
     "cs_r3x_1",  // Home Row
-    "cs_r2x_1",  // Bottom Alpha
+    "cs_r4x_1",  // Bottom Alpha
 ];
 
 gen_sprued_keycaps(keycap_ids);
