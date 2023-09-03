@@ -33,10 +33,13 @@ available_keycaps = [
     // Lateral Columns
     ["cs_r2_lateral_l",     3,  0, 1.00,   0,  0, false, false, false],
     ["cs_r3_lateral_r",     3,  1, 1.00,   0,  0, true,  false, false],
-    ["cs_r3_lateral_l_dot", 3,  1, 1.00,   0,  0, false, true, false],
+    ["cs_r3_lateral_l_dot", 3,  1, 1.00,   0,  0, false, true,  false],
+    ["cs_r3_lateral_l_bar", 3,  1, 1.00,   0,  0, false, false, true],
+
     ["cs_r2_lateral_r",     3,  0, 1.00,   0,  0, true,  false, false],
     ["cs_r3_lateral_l",     3,  1, 1.00,   0,  0, false, false, false],
-    ["cs_r3_lateral_r_dot", 3,  1, 1.00,   0,  0, true,  true, false],
+    ["cs_r3_lateral_r_dot", 3,  1, 1.00,   0,  0, true,  true,  false],
+    ["cs_r3_lateral_r_bar", 3,  1, 1.00,   0,  0, true,  false, true],
 
     // Levee Corners
     ["cs_r2_levee_c_l",     1,  3, 1.00,   0,  0, false, false, false],
@@ -178,7 +181,8 @@ module cs_default(keyID, variation=1, stem_rot=0, dot=false, bar=false) {
             Dish = true,
             visualizeDish=false,
             crossSection=false,
-            homeDot = dot
+            homeDot = dot,
+            homeBar = bar
         );
     }
 }
