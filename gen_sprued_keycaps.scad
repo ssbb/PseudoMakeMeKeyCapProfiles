@@ -79,19 +79,19 @@ function get_keycap(keycap_id) = [
 ];
 
 module cs_spru(keycap_ids, spacing=18, radius=0.8) {
-    echo ("Keycap ids: ", keycap_ids, " radius: ", radius);
 
-    if (len(keycap_ids) > 1) {
-        union() {
-            for (i = [0 : len(keycap_ids) - 1]){
+    echo (str("Building sprued keycaps with keycap ids: ", keycap_ids));
 
-                keycap_id = keycap_ids[i];
+    union() {
+        for (i = [0 : len(keycap_ids) - 1]){
 
-                translate([i * spacing, 0, 0])
-                mirror([0,0,0])
+            keycap_id = keycap_ids[i];
+
+            translate([i * spacing, 0, 0])
                 cs_keycap(keycap_id);
-            }
+        }
 
+        if(len(keycap_ids) > 1) {
             for (i = [0 : len(keycap_ids) - 2]){
                 translate([(i) * spacing + spacing / 2 - 1.5, 0, 0])
                 translate([0, 0, -0.9 * radius])
@@ -100,19 +100,15 @@ module cs_spru(keycap_ids, spacing=18, radius=0.8) {
             }
         }
     }
-    else {
-        cs_keycap(keycap_ids[0]);
-    }
 }
 
 module cs_keycap(keycap_id) {
 
     keycap = get_keycap(keycap_id)[0];
-    if (keycap == undef) {
-        echo ("Keycap id not found");
-        echo(keycap_id=keycap_id);
-        assert(keycap_id == undef);
-    }
+    assert(keycap != undef, str("Keycap with id ", keycap_id, " not found"));
+
+    echo (str("Building: ", keycap_id));
+
     variation = keycap[1];
     keycap_key_id = keycap[2];
     keycap_width = keycap[3];
@@ -121,7 +117,6 @@ module cs_keycap(keycap_id) {
     keycap_mirrored = keycap[6];
     keycap_dot = keycap[7];
     keycap_bar = keycap[8];
-    echo ("building: ", keycap, " width: ", keycap_width, " keycap_key_id: ", keycap_key_id);
 
     // If mirror and rotation are used at the same time,
     // we need to rotate round a different axis
@@ -140,7 +135,6 @@ module cs_keycap(keycap_id) {
 }
 
 module cs_default(keyID, variation=1, stem_rot=0, dot=false, bar=false) {
-    echo("keyID", keyID)
 
     if(variation == 1) {
         keycap_cs(
