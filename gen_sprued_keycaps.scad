@@ -113,41 +113,20 @@ module cs_keycap(keycap_id) {
     keycap_bar = keycap[8];
     echo ("building: ", keycap, " width: ", keycap_width, " keycap_key_id: ", keycap_key_id);
 
-    if(keycap_width > 1 && keycap_mirrored == true) {
+    // If mirror and rotation are used at the same time,
+    // we need to rotate round a different axis
+    //
+    // If the keycap is longer than 1.5u we rotate it so that it
+    // can still be placed at the same key distance on the sprue
+    rotation = keycap_width > 1 ? keycap_rot + 90 : keycap_rot;
+    mirroring =  keycap_mirrored == true ? [1, 0, 0] : [0, 0, 0];
 
-        rotate([0, keycap_rot, 0])
-        mirror([0, 1, 0])
-        rotate([0, 0, 90])
-        translate([0, 0.5, 0])
+    rotate([0, 0, rotation])
+        mirror(mirroring)
             cs_default(
                 keycap_key_id, variation, keycap_stem_rot,
                 dot=keycap_dot, bar=keycap_bar
             );
-    } else if(keycap_width > 1 && keycap_mirrored == false) {
-
-        rotate([0, keycap_rot, 0])
-        rotate([0, 0, 90])
-        translate([0, 0.5, 0])
-            cs_default(
-                keycap_key_id, variation, keycap_stem_rot,
-                dot=keycap_dot, bar=keycap_bar
-            );
-    } else if(keycap_width <= 1 && keycap_mirrored == true) {
-
-        rotate([0, keycap_rot, 0])
-        mirror([1, 0, ])
-            cs_default(
-                keycap_key_id, variation, keycap_stem_rot,
-                dot=keycap_dot, bar=keycap_bar
-            );
-    } else {
-
-        rotate([0, 0, keycap_rot])
-            cs_default(
-                keycap_key_id, variation, keycap_stem_rot,
-                dot=keycap_dot, bar=keycap_bar
-            );
-    }
 }
 
 module cs_default(keyID, variation=1, stem_rot=0, dot=false, bar=false) {
