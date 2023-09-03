@@ -82,7 +82,7 @@ module cs_spru(keycap_ids, spacing=18, radius=0.8, vertical=false) {
 
     echo (str("Building sprued keycaps with keycap ids: ", keycap_ids));
 
-    row_rotation = vertical == true ? 90 : 0;
+    row_rotation = vertical == true ? -90 : 0;
 
     rotate([0, 0, row_rotation])
         union() {
