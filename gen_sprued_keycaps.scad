@@ -2,9 +2,9 @@ use <Choc_Chicago_Steno.scad>
 use <Choc_Chicago_Steno_Convex.scad>
 use <Choc_Chicago_Steno_Thumb.scad>
 
-module gen_sprued_keycaps(keycap_ids, spacing=18, spru_radius=0.8) {
+module gen_sprued_keycaps(keycap_ids, spacing=18, spru_radius=0.8, vertical=false) {
     translate([0, -spacing * 1, 0])
-        cs_spru(keycap_ids=keycap_ids, spacing=spacing);
+        cs_spru(keycap_ids=keycap_ids, spacing=spacing, vertical=vertical);
 }
 
 available_keycaps = [
@@ -78,28 +78,34 @@ function get_keycap(keycap_id) = [
   keycap
 ];
 
-module cs_spru(keycap_ids, spacing=18, radius=0.8) {
+module cs_spru(keycap_ids, spacing=18, radius=0.8, vertical=false) {
 
     echo (str("Building sprued keycaps with keycap ids: ", keycap_ids));
 
-    union() {
-        for (i = [0 : len(keycap_ids) - 1]){
+    row_rotation = vertical == true ? 90 : 0;
 
-            keycap_id = keycap_ids[i];
+    rotate([0, 0, row_rotation])
+        union() {
+            for (i = [0 : len(keycap_ids) - 1]){
 
-            translate([i * spacing, 0, 0])
-                cs_keycap(keycap_id);
-        }
+                keycap_id = keycap_ids[i];
 
-        if(len(keycap_ids) > 1) {
-            for (i = [0 : len(keycap_ids) - 2]){
-                translate([(i) * spacing + spacing / 2 - 1.5, 0, 0])
-                translate([0, 0, -0.9 * radius])
-                rotate([0, 90, 0])
-                cylinder(h = 3, r = radius, $fn=12);
+                key_rotation = vertical == true ? 90 : 0;
+
+                translate([i * spacing, 0, 0])
+                    rotate([0, 0, key_rotation])
+                        cs_keycap(keycap_id);
+            }
+
+            if(len(keycap_ids) > 1) {
+                for (i = [0 : len(keycap_ids) - 2]){
+                    translate([(i) * spacing + spacing / 2 - 1.5, 0, 0])
+                    translate([0, 0, -0.9 * radius])
+                    rotate([0, 90, 0])
+                    cylinder(h = 3, r = radius, $fn=12);
+                }
             }
         }
-    }
 }
 
 module cs_keycap(keycap_id) {

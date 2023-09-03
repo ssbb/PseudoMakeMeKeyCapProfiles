@@ -30,4 +30,4 @@ keycap_ids = [
     "cs_r3_lateral_r_dot",    // Right Homing
 ];
 
-gen_sprued_keycaps(keycap_ids);
+gen_sprued_keycaps(keycap_ids, vertical=true);

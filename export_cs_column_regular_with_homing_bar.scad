@@ -23,4 +23,4 @@ keycap_ids = [
     "cs_r3_1_bar",
 ];
 
-gen_sprued_keycaps(keycap_ids);
+gen_sprued_keycaps(keycap_ids, vertical=true);

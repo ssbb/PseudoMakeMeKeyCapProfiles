@@ -16,4 +16,4 @@ keycap_ids = [
     "cs_r4_1",  // Bottom Alpha
 ];
 
-gen_sprued_keycaps(keycap_ids);
+gen_sprued_keycaps(keycap_ids, vertical=true);
