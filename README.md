@@ -14,7 +14,7 @@ If you like these keycaps after trying the 3D printed version, [consider buying 
   1. [Keycap Types](#keycap-types)
     1. [R2 Keycaps - Top](#r2-keycaps---top)
     2. [R3 Keycaps - Middle rows and home row](#r3-keycaps---middle-rows-and-home-row)
-    3. [R3 Keycaps - Bottom](#r3-keycaps---bottom)
+    3. [R4 Keycaps - Bottom](#r4-keycaps---bottom)
     4. [Thumb Keycaps](#thumb-keycaps)
     5. [1.5u Thumb Key](#15u-thumb-key)
     6. [Convex Keycaps](#convex-keycaps)
@@ -85,7 +85,7 @@ If you have a num row, you would use it for the top alpha row and the homerow.
 
 If you have a corne-style keyboard with just three rows, you would use it just for the home row.
 
-#### R3 Keycaps - Bottom
+#### R4 Keycaps - Bottom
 
 As explained in the R2 section, these are exactly the same as the R2 files, but pre-rotated.
 
