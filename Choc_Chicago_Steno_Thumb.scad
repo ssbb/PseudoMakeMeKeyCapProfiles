@@ -369,9 +369,13 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
             translate([-Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
           }
 
-          // Adding this condition fixes the stem StemRotation for 1.5u thumb keys
+          // Fix JLCPCB complaint about non-unified thumb keys
+          // Thanks to wolfwood for prividing it.
+          stemLayerAddition = keyID == 2 ? 20 : 0;
+
+          // Adding this if condition fixes the stem StemRotation for 1.5u thumb keys
           if(StemRot == 0) {
-            translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
+            translate([0,0,-.001])skin([for (i=[0:stemLayers-1 + stemLayerAddition]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
           }
        }
 
