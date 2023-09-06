@@ -305,11 +305,21 @@ function StemRotation(t, keyID) =
     ((1-t)/stemLayers*ZAngleSkew(keyID))    //Z shift
   ];
 
-function StemTransform(t, keyID) =
-  [
-    pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
-    pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
-  ];
+// Swap width and length of little rectangular platform below the stem
+// if the stem is rotated
+function StemTransform(t, keyID, StemRot) =
+  StemRot == 0
+  ? // stemRot is 0
+    [
+      pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop),
+      pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop)
+    ]
+  : // else swap stemWid and stemLen
+    [
+      pow(t/stemLayers, StemExponent(keyID))*(BottomWidth(keyID) -TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemLen - 2*slop),
+      pow(t/stemLayers, StemExponent(keyID))*(BottomLength(keyID)-TopLenDiff(keyID)-wallthickness*2) + (1-pow(t/stemLayers, StemExponent(keyID)))*(stemWid - 2*slop)
+    ]
+  ;
 
 function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))*1;
   //Stem Exponent
@@ -368,17 +378,23 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
             translate([Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
             translate([-Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
           }
+        }
 
-          // Fix JLCPCB complaint about non-unified thumb keys
-          // Thanks to wolfwood for prividing it.
-          stemLayerAddition = keyID == 2 ? 20 : 0;
+        // Fix JLCPCB complaint about non-unified thumb keys
+        // Thanks to wolfwood for prividing it.
+        stemLayerAddition = keyID == 2 ? 20 : 0;
 
-          // Adding this if condition fixes the stem StemRotation for 1.5u thumb keys
-          if(StemRot == 0) {
-            translate([0,0,-.001])skin([for (i=[0:stemLayers-1 + stemLayerAddition]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID),fn=fn,r=1 /*StemRadius(i, keyID) */ ))]); //outer shell
-          }
-       }
-
+        // I moved this outside of the above rotate operation so that the stem bed doesn't get rotated.
+        // To fix the little square being the wrong way when the stem is rotated, I swap the stemLen
+        // and stemWid parameters in StemTransform for rotated keys
+        translate([0,0,-.001])
+          skin([
+            for (i=[0:stemLayers-1 + stemLayerAddition])
+              transform(
+                translation(StemTranslation(i,keyID)),
+                rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=1 /*StemRadius(i, keyID) */ )
+              )
+          ]); //outer shell
      }
     //cut for fonts and extra pattern for light?
      if(visualizeDish == true && Dish == true){
