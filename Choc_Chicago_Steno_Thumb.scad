@@ -382,7 +382,14 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
 
         // Fix JLCPCB complaint about non-unified thumb keys
         // Thanks to wolfwood for prividing it.
-        stemLayerAddition = keyID == 2 ? 20 : 0;
+        stemLayerAddition = (
+          keyID == 2 // 1u Thumb key
+            ? 20
+          : keyID == 3 || keyId == 4 // 1.5u and 2u Thumb key
+            ? 8
+          : // else
+            0
+        );
 
         // I moved this outside of the above rotate operation so that the stem bed doesn't get rotated.
         // To fix the little square being the wrong way when the stem is rotated, I swap the stemLen
