@@ -1,31 +1,41 @@
+<!-- omit from toc -->
 # Chicago Stenographer Keycaps - Optimized for JLCPCB 3D printing
 
 This fork combines multiple chicago stenographer keycaps with sprues into one file to get around the $1 minimum charge of JLCPCB.
 
-If you like these keycaps after trying the 3D printed version, [consider buying artisan versions from the creator at asymplex.xyz](https://www.asymplex.xyz).
+If you like these keycaps after trying the 3D printed version, [consider buying original versions from the creator at asymplex.xyz](https://www.asymplex.xyz).
 
+> **Warning**
+>
+> These keycap sets are still untested. I have placed my JLCPCB order and will remove this warning if everything goes well.
+>
+> The original code for the 1.5u thumb keys produced keycaps with the wrong stem orientation. I have attempted to fix this problem, but JLCPCB still complains about areas that are too thin and will ask you if you want to take the risk of them not getting printed correctly when you order.
+>
+> All other keycaps should not have problems though.
+
+<!-- omit from toc -->
 ## Table Of Contents
-1. [Table Of Contents](#table-of-contents)
-2. [Photos](#photos)
-  1. [Render](#render)
-  2. [Real Life](#real-life)
-3. [About this fork](#about-this-fork)
-4. [Documentation](#documentation)
-  1. [Keycap Types](#keycap-types)
-    1. [R2 Keycaps - Top](#r2-keycaps---top)
-    2. [R3 Keycaps - Middle rows and home row](#r3-keycaps---middle-rows-and-home-row)
-    3. [R4 Keycaps - Bottom](#r4-keycaps---bottom)
-    4. [Thumb Keycaps](#thumb-keycaps)
-    5. [1.5u Thumb Key](#15u-thumb-key)
-    6. [Convex Keycaps](#convex-keycaps)
-    7. [Lateral Keycaps](#lateral-keycaps)
-  2. [What to print...](#what-to-print)
-    1. [If you have a 5x3 row board (Such as the corne without the outer coulmn)](#if-you-have-a-5x3-row-board-such-as-the-corne-without-the-outer-coulmn)
-    2. [If you have a 6x3 row board (Such as the corne WITH the outer coulmn)](#if-you-have-a-6x3-row-board-such-as-the-corne-with-the-outer-coulmn)
-    3. [If you have a 6x4 board with a num row...](#if-you-have-a-6x4-board-with-a-num-row)
-  3. [How to order on JLCPCB](#how-to-order-on-jlcpcb)
-    1. [JLCPCB Shopping Cart Example](#jlcpcb-shopping-cart-example)
-  4. [How to create custom sets of keycaps](#how-to-create-custom-sets-of-keycaps)
+
+1. [Photos](#photos)
+    1. [Render](#render)
+    2. [Real Life](#real-life)
+2. [About this fork](#about-this-fork)
+3. [Documentation](#documentation)
+    1. [Keycap Types](#keycap-types)
+        1. [R2 Keycaps - Top](#r2-keycaps---top)
+        2. [R3 Keycaps - Middle rows and home row](#r3-keycaps---middle-rows-and-home-row)
+        3. [R4 Keycaps - Bottom](#r4-keycaps---bottom)
+        4. [Thumb Keycaps](#thumb-keycaps)
+        5. [1.5u Thumb Key](#15u-thumb-key)
+        6. [Convex Keycaps](#convex-keycaps)
+        7. [Lateral Keycaps](#lateral-keycaps)
+    2. [What to print...](#what-to-print)
+        1. [If you have a 5x3 row board (Such as the corne without the outer coulmn)](#if-you-have-a-5x3-row-board-such-as-the-corne-without-the-outer-coulmn)
+        2. [If you have a 6x3 row board (Such as the corne WITH the outer coulmn)](#if-you-have-a-6x3-row-board-such-as-the-corne-with-the-outer-coulmn)
+        3. [If you have a 6x4 board with a num row...](#if-you-have-a-6x4-board-with-a-num-row)
+    3. [How to order on JLCPCB](#how-to-order-on-jlcpcb)
+        1. [JLCPCB Shopping Cart Example](#jlcpcb-shopping-cart-example)
+    4. [How to create custom sets of keycaps](#how-to-create-custom-sets-of-keycaps)
 
 ## Photos
 
@@ -35,6 +45,8 @@ Subtly sculpted choc spaced low profile
 ![CS](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS.png)
 
 ### Real Life
+
+This photo is from the creator's repo. It's not a JLCPCB print.
 
 ![Look](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS_gergo.jpg)
 
@@ -172,6 +184,15 @@ All of the above, PLUS...
 * Make sure to select the correct Quantity
 
 The total for a 6x4 board with all the optional stuff will cost $23.88 + shipping.
+
+> **Warning**
+> You will likely get warnings that some areas on the 1.5u thumb keys are too thin.
+>
+> The original code for the 1.5u thumb keys produced keycaps with the wrong stem orientation. I have attempted to fix this problem, but JLCPCB still complains about areas that are too thin and will ask you if you want to take the risk of them not getting printed correctly when you order.
+>
+> All other keycaps should not have problems though.
+>
+> I have accepted the risk and will update this message once I receive the keycaps.
 
 #### JLCPCB Shopping Cart Example
 
