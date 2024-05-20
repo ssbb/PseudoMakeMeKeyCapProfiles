@@ -5,52 +5,36 @@ This fork combines multiple chicago stenographer keycaps with sprues into one fi
 
 If you like these keycaps after trying the 3D printed version, [consider buying original versions from the creator at asymplex.xyz](https://www.asymplex.xyz).
 
-> **Warning**
->
-> These keycap sets are still untested. I have placed my JLCPCB order and will remove this warning if everything goes well.
->
-> The original code for the 1.5u thumb keys produced keycaps with the wrong stem orientation. I have attempted to fix this problem, but JLCPCB still complains about areas that are too thin and will ask you if you want to take the risk of them not getting printed correctly when you order.
->
-> All other keycaps should not have problems though.
-
 <!-- omit from toc -->
 ## Table Of Contents
 
-1. [Photos](#photos)
-    1. [Render](#render)
-    2. [Real Life](#real-life)
-2. [About this fork](#about-this-fork)
-3. [Documentation](#documentation)
-    1. [Keycap Types](#keycap-types)
-        1. [R2 Keycaps - Top](#r2-keycaps---top)
-        2. [R3 Keycaps - Middle rows and home row](#r3-keycaps---middle-rows-and-home-row)
-        3. [R4 Keycaps - Bottom](#r4-keycaps---bottom)
-        4. [Thumb Keycaps](#thumb-keycaps)
-        5. [1.5u Thumb Key](#15u-thumb-key)
-        6. [Convex Keycaps](#convex-keycaps)
-        7. [Lateral Keycaps](#lateral-keycaps)
-    2. [What to print...](#what-to-print)
-        1. [If you have a 5x3 row board (Such as the corne without the outer coulmn)](#if-you-have-a-5x3-row-board-such-as-the-corne-without-the-outer-coulmn)
-        2. [If you have a 6x3 row board (Such as the corne WITH the outer coulmn)](#if-you-have-a-6x3-row-board-such-as-the-corne-with-the-outer-coulmn)
-        3. [If you have a 6x4 board with a num row...](#if-you-have-a-6x4-board-with-a-num-row)
-    3. [How to order on JLCPCB](#how-to-order-on-jlcpcb)
-        1. [JLCPCB Shopping Cart Example](#jlcpcb-shopping-cart-example)
-    4. [How to create custom sets of keycaps](#how-to-create-custom-sets-of-keycaps)
+- [1. Photos](#1-photos)
+- [2. About this fork](#2-about-this-fork)
+- [3. Documentation](#3-documentation)
+  - [3.1. Keycap Types](#31-keycap-types)
+    - [3.1.1. R2 Keycaps - Top](#311-r2-keycaps---top)
+    - [3.1.2. R3 Keycaps - Middle rows and home row](#312-r3-keycaps---middle-rows-and-home-row)
+    - [3.1.3. R4 Keycaps - Bottom](#313-r4-keycaps---bottom)
+    - [3.1.4. Thumb Keycaps](#314-thumb-keycaps)
+    - [3.1.5. 1.5u Thumb Key](#315-15u-thumb-key)
+    - [3.1.6. Convex Keycaps](#316-convex-keycaps)
+    - [3.1.7. Lateral Keycaps](#317-lateral-keycaps)
+  - [3.2. What to print...](#32-what-to-print)
+    - [3.2.1. If you have a 5x3 row board (Such as the corne without the outer coulmn)](#321-if-you-have-a-5x3-row-board-such-as-the-corne-without-the-outer-coulmn)
+    - [3.2.2. If you have a 6x3 row board (Such as the corne WITH the outer coulmn)](#322-if-you-have-a-6x3-row-board-such-as-the-corne-with-the-outer-coulmn)
+    - [3.2.3. If you have a 6x4 board with a num row...](#323-if-you-have-a-6x4-board-with-a-num-row)
+  - [3.3. How to order on JLCPCB](#33-how-to-order-on-jlcpcb)
+  - [3.4. How to create custom sets of keycaps](#34-how-to-create-custom-sets-of-keycaps)
 
-## Photos
+## 1. Photos
 
-### Render
+Here are some photos of my prints using JLC 3DP's MJF PA12-HP Nylon process:
 
-Subtly sculpted choc spaced low profile
-![CS](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS.png)
+![Chicago Stenographer 3D Print - MJF](Photo/CS_jlc3dp_mjf_01.jpg)
 
-### Real Life
+![Chicago Stenographer 3D Print - MJF](Photo/CS_jlc3dp_mjf_02.jpg)
 
-This photo is from the creator's repo. It's not a JLCPCB print.
-
-![Look](https://raw.githubusercontent.com/pseudoku/PseudoMakeMeKeyCapProfiles/master/Photo/CS_gergo.jpg)
-
-## About this fork
+## 2. About this fork
 
 This is a fork of [sporkus/PseudoMakeMeKeyCapProfiles](https://github.com/sporkus/PseudoMakeMeKeyCapProfiles/), which is a fork of [pseudoku's original chicago stenographer keycaps](https://github.com/pseudoku/PseudoMakeMeKeyCapProfiles).
 
@@ -66,9 +50,11 @@ I expanded on those efforts in the following ways...
 
 ![Screenshot of thumbs stl](Photo/thumb_keys_stl.png)
 
-## Documentation
+![Screenshot of thumbs back stl](Photo/thumb_keys_stl_back.png)
 
-### Keycap Types
+## 3. Documentation
+
+### 3.1. Keycap Types
 
 When I first started looking into these keycaps, I was incredibly confused by all the available keycap variations and files.
 
@@ -79,7 +65,7 @@ In the MX keycap world Rx is used to refer to rows and keycap heights. As someon
 But this graphic [from melgeek](https://www.melgeek.com/blogs/guide/the-type-of-keycaps-profiles) explains it well:
 ![Keycap Rows](Photo/keycap_rows.jpg)
 
-#### R2 Keycaps - Top
+#### 3.1.1. R2 Keycaps - Top
 
 You use these keycaps for the top row, but for the CS keycap set, both R2 and R4 are the same. You simply flip them around.
 
@@ -89,7 +75,7 @@ If your keyboard has a num row, you would use them for the num row and the botto
 
 If you have a corne-style keyboard with just three rows, you would use it for the top and bottom alpha rows.
 
-#### R3 Keycaps - Middle rows and home row
+#### 3.1.2. R3 Keycaps - Middle rows and home row
 
 You use these keycaps for the columns between the top and bottom rows.
 
@@ -97,13 +83,13 @@ If you have a num row, you would use it for the top alpha row and the homerow.
 
 If you have a corne-style keyboard with just three rows, you would use it just for the home row.
 
-#### R4 Keycaps - Bottom
+#### 3.1.3. R4 Keycaps - Bottom
 
 As explained in the R2 section, these are exactly the same as the R2 files, but pre-rotated.
 
 You can order 2x R2 or 1x R2 + 1x R4.
 
-#### Thumb Keycaps
+#### 3.1.4. Thumb Keycaps
 
 The thumb keycaps are designed to create a "dish" with ridges on the outer thumb keys.
 
@@ -113,7 +99,7 @@ If you have a corne-style thumb cluster with 3 keys, you can use a convex key fo
 
 And there is an alternative convex key included, which is slightly lower so that you can see which one you like better.
 
-#### 1.5u Thumb Key
+#### 3.1.5. 1.5u Thumb Key
 
 Additionally, there are also 1.5u variations of the outer thumb keys.
 
@@ -121,13 +107,13 @@ You have to be very careful if you get the files from other repos, because by de
 
 The files here have the stem in the correct orientation for keyboards like the corne where the switch is already rotated by 90 degrees.
 
-#### Convex Keycaps
+#### 3.1.6. Convex Keycaps
 
 The convex keys are used on the middle thumb keys, but can also optionally be used on the inner and outer columns.
 
 You can [see an example of how that looks here](https://www.printables.com/model/158865-chicago-steno-low-profile-ergo-keycaps).
 
-#### Lateral Keycaps
+#### 3.1.7. Lateral Keycaps
 
 Steno keycaps have vertical ridges that keep your finger aligned in the row. This is great, but some people prefer to not have these ridges for the inner and outer columns so that they don't have to lift the finger to reach the side-key or to perform horizontal combos with one finger.
 
@@ -137,11 +123,11 @@ The file contains only one set of the two. If you want it on both sides of the k
 
 I suggest printing one version with the homing dots and another with the homing bars to get all possible variations.
 
-### What to print...
+### 3.2. What to print...
 
 You can find all files in the stl directory. You can also look at the `export_cs_*.scad` files to see what key models were used and further comments on how to use the sets.
 
-#### If you have a 5x3 row board (Such as the corne without the outer coulmn)
+#### 3.2.1. If you have a 5x3 row board (Such as the corne without the outer coulmn)
 
 * 1x `cs_row_r2_top.stl`
 * 1x `cs_row_r3_homerow_bar.stl` or `cs_row_r3_homerow_dots.stl` (different homing keys)
@@ -149,7 +135,7 @@ You can find all files in the stl directory. You can also look at the `export_cs
 * 1x `cs_row_r4_bottom.stl`
 * 1x `cs_row_thumbs.stl`
 
-#### If you have a 6x3 row board (Such as the corne WITH the outer coulmn)
+#### 3.2.2. If you have a 6x3 row board (Such as the corne WITH the outer coulmn)
 
 All of the above, PLUS...
 
@@ -168,13 +154,13 @@ To be able to use lateral keys on both sides and get both types of homing keys y
 * 1x `cs_column_lateral_homing_bar.stl`
 * 1x `cs_column_lateral_homing_dot.stl`
 
-#### If you have a 6x4 board with a num row...
+#### 3.2.3. If you have a 6x4 board with a num row...
 
 All of the above, PLUS...
 
 * 1x `cs_row_r3_regular.stl` for the top alpha row (the r2 keycaps will be used for the num row)
 
-### How to order on JLCPCB
+### 3.3. How to order on JLCPCB
 
 * Upload the stl model
 * Select 3D Technology: `MJF (Nylon)`
@@ -183,22 +169,24 @@ All of the above, PLUS...
   * Without this they will be a "textured gray"
 * Make sure to select the correct Quantity
 
-The total for a 6x4 board with all the optional stuff will cost $23.88 + shipping.
+The total for a 6x4 board with all the optional stuff will cost appoximately $23.88. In addition to that JLC now charges $1 per sprued file [as per their connected parts policy](https://jlc3dp.com/help/article/213-Connected-Parts-Printing-Guide).
 
-> **Warning**
+So, it will be approximately $32.88 + shipping in total.
+
+> [!NOTE]
 > You will likely get warnings that some areas on the 1.5u thumb keys are too thin.
+>
+> You can just tell them that you accept the risk and it will print just fine. Me and several other people successfully printed these keycaps despite the warnings.
 >
 > The original code for the 1.5u thumb keys produced keycaps with the wrong stem orientation. I have attempted to fix this problem, but JLCPCB still complains about areas that are too thin and will ask you if you want to take the risk of them not getting printed correctly when you order.
 >
 > All other keycaps should not have problems though.
->
-> I have accepted the risk and will update this message once I receive the keycaps.
 
-#### JLCPCB Shopping Cart Example
+#### 3.3.1. JLCPCB Shopping Cart Example  <!-- omit from toc -->
 
 ![JLCPCB Shopping Cart Example](Photo/jlcpcb_shopping_cart.png)
 
-### How to create custom sets of keycaps
+### 3.4. How to create custom sets of keycaps
 
 * Install OpenSCAD
   * The [snaphot version](https://openscad.org/downloads.html#snapshots) is recommended for performance reasons
