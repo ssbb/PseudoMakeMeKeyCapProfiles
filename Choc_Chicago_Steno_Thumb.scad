@@ -13,7 +13,7 @@ mirror([1,0,0])keycap_cs_thumb(
   keyID   = 3, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
-  StemRot = 90,//change stem orientation by deg
+  StemRot = 0,//change stem orientation by deg
   Dish    = true, //turn on dish cut
   Stab    = 0,
   visualizeDish = false, // turn on debug visual of Dish
@@ -25,7 +25,7 @@ mirror([1,0,0])keycap_cs_thumb(
 
 //-Parameters
 wallthickness = 1.1; // 1.75 for mx size, 1.1
-topthickness = 2.5; //2 for phat 3 for chicago
+topthickness = 2.15; //2 for phat 3 for chicago
 stepsize = 40;  //resolution of Trajectory
 step =2;       //resolution of ellipes
 fn = 60;          //resolution of Rounded Rectangles: 60 for output
@@ -33,8 +33,8 @@ layers = 50;    //resolution of vertical Sweep: 50 for output
 
 //---Stem param
 slop    = 0.3;
-stemWid = 8;
-stemLen = 6;
+stemWid = 7.6;
+stemLen = 4;
 stemCrossHeight = 1.8;
 extra_vertical = 0.6;
 stemLayers = 50; //resolution of stem to cap top transition
@@ -49,26 +49,26 @@ keyParameters = //keyParameters[KeyID][ParameterID]
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
     //Column 0
     //Levee: Chicago in choc Dimension for ref
-    [17.20,  16.00,   5.6, 	   5,  5.0,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Levee Steno R2/R4
-    [17.20,  16.00,   5.6, 	   5,  4.6,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //Levee Steno R3
+    [17.20,  16.00,   5.6, 	   5,  5.0,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       4], //Levee Steno R2/R4
+    [17.20,  16.00,   5.6, 	   5,  4.6,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       4], //Levee Steno R3
     //Thumb
-    [17.20,  16.00,  4.25, 	3.25,  5.0,  -.5,  0.0,    -3,    -3,    -0,   2,   2,    .10,      2,     .10,      2,     2,       2], //Thumb 1
-    [15.65,  26.4,   5.5, 	3.25,  4.9,  -.5,  0.0,    -3,    -2,    -2,   2,   2,     .3,      2,      .3,    2.5,     2,       2], //Thumb 1.5
-    [15.65,  35.8,  4.25, 	3.25,  4.9, -.25,  0.0,    -2.5,    -4,    -2,   2,   3,     .3,      2,      .3,    2.5,     2,       2], //Thumb 2.0
+    [17.20,  16.00,  4.25, 	3.25,  5.0,  -.5,  0.0,    -3,    -3,    -0,   2,   2,    .10,      2,     .10,      2,     2,       4], //Thumb 1
+    [15.65,  26.4,   5.5, 	3.25,  4.9,  -.5,  0.0,    -3,    -2,    -2,   2,   2,     .3,      2,      .3,    2.5,     2,       4], //Thumb 1.5
+    [15.65,  35.8,  4.25, 	3.25,  4.9, -.25,  0.0,    -2.5,    -4,    -2,   2,   3,     .3,      2,      .3,    2.5,     2,       4], //Thumb 2.0
     //1.25 5
-    [21.3,   15.60,  5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.25u
-    [21.4,   15.60,  5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.25u
+    [21.3,   15.60,  5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R2/R4 1.25u
+    [21.4,   15.60,  5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R3 1.25u
     //1.5 7
-    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.5
-    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.5u
+    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R2/R4 1.5
+    [26.15,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R3 1.5u
     //1.75 9
-    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R2/R4 1.5
-    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       2], //Chicago Steno R3 1.5u
+    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     5,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R2/R4 1.5
+    [30.90,  15.60,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2,   2,     .5,      3,      .5,      3,     2,       4], //Chicago Steno R3 1.5u
     // Ergo shits
-    [18.75,  18.75,   5.6, 	   5,    8,    0,   .25,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       2], //highpro 19.05 R2|4
-    [17.20,  16.00,   5.6, 	   5,  4.7,    0,   .0,      3,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R2 ALT
-    [17.20,  16.00,   5.6, 	   5,  5.5,    0,   .0,      7,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R1 Steap
-    [17.20,  16.00,   5.6, 	   5,  7.0,    0,   .0,     10,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       2], //Chicago Steno R1 mild with alt R2
+    [18.75,  18.75,   5.6, 	   5,    8,    0,   .25,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       4], //highpro 19.05 R2|4
+    [17.20,  16.00,   5.6, 	   5,  4.7,    0,   .0,      3,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       4], //Chicago Steno R2 ALT
+    [17.20,  16.00,   5.6, 	   5,  5.5,    0,   .0,      7,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       4], //Chicago Steno R1 Steap
+    [17.20,  16.00,   5.6, 	   5,  7.0,    0,   .0,     10,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       4], //Chicago Steno R1 mild with alt R2
 
 ];
 
@@ -321,7 +321,7 @@ function StemTransform(t, keyID, StemRot) =
     ]
   ;
 
-function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))*1;
+function StemRadius(t, keyID) = (pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))*1)*0.25;
   //Stem Exponent
 
 //
@@ -371,6 +371,7 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
           translate([0,0,-.001])skin([for (i=[0:layers-1]) transform(translation(InnerTranslation(i, keyID)) * rotation(CapRotation(i, keyID)), elliptical_rectangle(InnerTransform(i, keyID), b = CapRoundness(i,keyID),fn=fn))]);
         }
       }
+
       if(Stem == true){
         rotate([0,0,StemRot]){
           choc_stem(draftAng = draftAngle);
@@ -380,29 +381,12 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
           }
         }
 
-        // Fix JLCPCB complaint about non-unified thumb keys
-        // Thanks to wolfwood for prividing it.
-        stemLayerAddition = (
-          keyID == 2 // 1u Thumb key
-            ? 20
-          : keyID == 3 || keyId == 4 // 1.5u and 2u Thumb key
-            ? 8
-          : // else
-            0
-        );
-
         // I moved this outside of the above rotate operation so that the stem bed doesn't get rotated.
         // To fix the little square being the wrong way when the stem is rotated, I swap the stemLen
         // and stemWid parameters in StemTransform for rotated keys
-        translate([0,0,-.001])
-          skin([
-            for (i=[0:stemLayers-1 + stemLayerAddition])
-              transform(
-                translation(StemTranslation(i,keyID)),
-                rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=1 /*StemRadius(i, keyID) */ )
-              )
-          ]); //outer shell
-     }
+
+        translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=StemRadius(i, keyID)))]); //outer shell
+      }
     //cut for fonts and extra pattern for light?
      if(visualizeDish == true && Dish == true){
       #translate([-TopWidShift(keyID),.0001-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(FrontCurve);
