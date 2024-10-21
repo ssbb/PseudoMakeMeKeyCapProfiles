@@ -2,7 +2,8 @@
 OPENSCAD="/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
 
 # OpenScad options
-OPENSCAD_OPTIONS=--export-format binstl --backend=Manifold
+# NOTE: --backend=Manifold generates the wrong STL's
+OPENSCAD_OPTIONS=--export-format binstl
 OPENSCAD_CMD=$(OPENSCAD) $(OPENSCAD_OPTIONS)
 
 # Directories
