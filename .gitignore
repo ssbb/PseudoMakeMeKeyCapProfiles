@@ -1,4 +1,5 @@
 .DS_Store
 /*.stl
 /large_stl
-/stl
+/stl/*
+!/stl/.gitkeep
