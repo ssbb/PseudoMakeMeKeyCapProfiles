@@ -175,5 +175,3 @@ module cs_default(keyID, variation=1, stem_rot=0, dot=false, bar=false) {
         );
     }
 }
-
-

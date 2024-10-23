@@ -11,13 +11,13 @@ use <skin.scad>
 
 /*Tester */
 keycap_cs(
-  keyID  = 0, //change profile refer to KeyParameters Struct
+  keyID  = 1, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   StemRot = 0, //change stem orientation by deg
   Dish   = true, //turn on dish cut
   Stab   = 0,
-  visualizeDish = false, // turn on debug visual of Dish
+  visualizeDish = true, // turn on debug visual of Dish
   crossSection  = false, // center cut to check internal
   homeDot = false, //turn on homedots,
   homeBar = false, //turn on homebar,
@@ -53,7 +53,7 @@ keyParameters = //keyParameters[KeyID][ParameterID]
     //Column 0
     //Levee: Chicago in choc Dimension
     [17.5,  16.5,   5.6, 	   5,  4.9,    0,   .0,     5,    -0,    -0,   2, 2.5,    .10,      2,     .10,      3,     2,       4], //Chicago Steno R2/R4
-    [17.5,  16.5,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       4], //Chicago Steno R3 flat
+    [17.2,  16.5,   5.6, 	   5,  4.5,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,      3,     .10,      3,     2,       4], //Chicago Steno R3 flat
     [17.5,  16.5,  1.25, 	1.25,  4.5,    0,   .0,     0,    -0,    -0,   2, 2.5,    .10,     .5,     .10,     .5,     2,       4], //Chicago Steno R3 chord
     //mods 3
     [17.5,  16.5,  4.25, 	3.25,  5.5,  -.7,  0.7,     0,    -4,    -0,   2,   2,    .10,      2,     .10,      2,     2,       4], //Levee Corner R2
@@ -83,32 +83,32 @@ dishParameters = //dishParameter[keyID][ParameterID]
 [
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx
   //Column 0
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11.5,    17.5,     2,      4.5,    4,    2,   -35,   11.5,  15,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      7,    1.7,   11.5,    15,     2,      4.5,    4,    5,   -40,   11.5,    15,     2], //Chicago Steno R3 flat
-  [ 4.5,    4,    5,  -40,      7,    1.7,   11.5,    15,     2,      4.5,    4,    5,   -40,   11.5,    15,     2], //Chicago Steno R3 chord
+  [ 4.5,    4,    7,  -50,      7,    1.7,   11.5,    17.5,     2,      4.7,    4,    2,   -35,   11.5,  15,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      7,    1.7,   11.5,    15,     2,      4.7,    4,    5,   -40,   11.5,    15,     2], //Chicago Steno R3 flat
+  [ 4.5,    4,    5,  -40,      7,    1.7,   11.5,    15,     2,      4.7,    4,    5,   -40,   11.5,    15,     2], //Chicago Steno R3 chord
 
   [   6,  3.5,    7,  -50,      5,    1.0,   16,    23,     2,        6,  3.5,    7,   -50,   16,    23,     2], //Levee Steno R2/R4
   [   6,  3.5,    7,  -50,      5,    1.0,   16,    23,     2,        6,  3.5,    7,   -50,   16,    23,     2], //Levee Steno R2/R4
   //1.25
-  [ 4.5,    4,    7,  -40,      8,    1.7,   16.0,  22.5,     2,      4.5,    4,    2,   -35,   16.0,  19.5,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.7,   16.0,  19.5,     2,      4.5,    4,    5,   -40,   16.0,  19.5,     2], //Chicago Steno R3
+  [ 4.5,    4,    7,  -40,      8,    1.7,   16.0,  22.5,     2,      4.7,    4,    2,   -35,   16.0,  19.5,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      8,    1.7,   16.0,  19.5,     2,      4.7,    4,    5,   -40,   16.0,  19.5,     2], //Chicago Steno R3
   //1.5
-  [ 4.5,    4,    7,  -40,      8,    1.7,   20.5,  26.5,     2,      4.5,    4,    2,   -35,   20.5,  24.0,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.7,   20.5,  24.0,     2,      4.5,    4,    5,   -40,   20.5,  24.0,     2], //Chicago Steno R3
+  [ 4.5,    4,    7,  -40,      8,    1.7,   20.5,  26.5,     2,      4.7,    4,    2,   -35,   20.5,  24.0,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      8,    1.7,   20.5,  24.0,     2,      4.7,    4,    5,   -40,   20.5,  24.0,     2], //Chicago Steno R3
   //1.75
-  [ 4.5,    4,    7,  -40,      8,    1.7,   25.0,  31.0,     2,      4.5,    4,    2,   -35,   25.0,  28.5,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.7,   25.0,  28.5,     2,      4.5,    4,    5,   -40,   25.0,  28.5,     2], //Chicago Steno R3
+  [ 4.5,    4,    7,  -40,      8,    1.7,   25.0,  31.0,     2,      4.7,    4,    2,   -35,   25.0,  28.5,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      8,    1.7,   25.0,  28.5,     2,      4.7,    4,    5,   -40,   25.0,  28.5,     2], //Chicago Steno R3
   //2.00
-  [ 4.5,    4,    7,  -40,      8,    1.7,   29.5,  35.5,     2,      4.5,    4,    2,   -35,   29.5,  33.0,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.7,   29.5,  33.0,     2,      4.5,    4,    5,   -40,   29.5,  33.0,     2], //Chicago Steno R3
+  [ 4.5,    4,    7,  -40,      8,    1.7,   29.5,  35.5,     2,      4.7,    4,    2,   -35,   29.5,  33.0,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      8,    1.7,   29.5,  33.0,     2,      4.7,    4,    5,   -40,   29.5,  33.0,     2], //Chicago Steno R3
   //2.25
-  [ 4.5,    4,    7,  -40,      8,    1.7,   33.0,  39.0,     2,      4.5,    4,    2,   -35,   33.0,  36.5,     2], //Chicago Steno R2/R4
-  [ 4.5,    4,    5,  -40,      8,    1.7,   33.0,  36.5,     2,      4.5,    4,    5,   -40,   33.0,  36.5,     2], //Chicago Steno R3
+  [ 4.5,    4,    7,  -40,      8,    1.7,   33.0,  39.0,     2,      4.7,    4,    2,   -35,   33.0,  36.5,     2], //Chicago Steno R2/R4
+  [ 4.5,    4,    5,  -40,      8,    1.7,   33.0,  36.5,     2,      4.7,    4,    5,   -40,   33.0,  36.5,     2], //Chicago Steno R3
 
   [   5,    5,    5,  -40,      7,    1.7,   11,    15,     2,        5,    5,    5,   -40,   11,    15,     2], //Chicago Steno R3 flat
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
-  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.5,    4,    2,   -35,   11,    15,     2] //Chicago Steno R1
+  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.7,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
+  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.7,    4,    2,   -35,   11,    15,     2], //Chicago Steno R1
+  [ 4.5,    4,    7,  -50,      7,    1.7,   11,    17,     2,      4.7,    4,    2,   -35,   11,    15,     2] //Chicago Steno R1
 ];
 
 

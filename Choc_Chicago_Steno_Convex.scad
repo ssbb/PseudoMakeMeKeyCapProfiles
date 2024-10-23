@@ -10,7 +10,7 @@ use <skin.scad>
 //NOTE: with sweep cuts, top surface may not be visible in review, it should be visible once rendered
 
 mirror([0,0,0])keycap_cs_convex(
-  keyID  = 2, //change profile refer to KeyParameters Struct
+  keyID  = 0, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   StemRot = 0,//change stem orientation by deg
