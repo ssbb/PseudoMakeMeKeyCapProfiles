@@ -10,7 +10,7 @@ use <skin.scad>
 // change stemrot
 
 mirror([1,0,0])keycap_cs_thumb(
-  keyID   = 2, //change profile refer to KeyParameters Struct
+  keyID   = 0, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
   StemRot = 0,//change stem orientation by deg
@@ -77,7 +77,7 @@ dishParameters = //dishParameter[keyID][ParameterID]
 //FFwd1 FFwd2 FPit1 FPit2  DshDep DshHDif FArcIn FArcFn FArcEx     BFwd1 BFwd2 BPit1 BPit2  BArcIn BArcFn BArcEx FTani FTanf BTani BTanf TanEX PhiInit PhiFin
   //Column 0
   [ 4.5,    4,    7,  -50,      7,    1.7,   11.15,    17,     2,      4.7,    4,    2,   -35,   11.15,    15,     2,     3,  4.5,    3,  4.5,   2, 203, 210], //Chicago Steno R2/R4
-  [ 4.65,    4,    5,  -40,      7,    1.7,   11.15,    15,     2,      4.85,    4,    5,   -40,   11.15,    15,     2,     4,    5.15,    4,    5.15,   2, 200, 210], //Chicago Steno R3 flat
+  [ 4.85,    4,    5,  -40,      7,    1.7,   11.35,    17,     2,      4.85,    4,    5,   -40,   11.35,    15,     2,     4,    5.15,    4,    5.15,   2, 200, 210], //Chicago Steno R3 flat
 
   [   5,  5.5,    0,  -40,      7,    1.7,   16,    18,     2,       5.5,  3.5,    5,   -50,   16,    18.95,     2,     5,   3.75,    2,    3.75,   2, 199, 210], //T1
   [  10,  4.5,    0,  -40,      7,    1.7,   16,    15,     2,        10,  3.5,    5,   -50,   16,    18,     2,     3,   3.75,    .75,    3.75,   2, 200, 210], //1.5u
@@ -380,18 +380,20 @@ module keycap_cs_thumb(keyID = 0, cutLen = 0, visualizeDish = false, crossSectio
             translate([-Stab/2,0,0])rotate([0,0,StemRot])cherry_stem(KeyHeight(keyID), slop);
           }
         }
+        translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID))*rotation(StemRotation(i, keyID)), rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=StemRadius(i, keyID)))]); //outer shell
 
-        // I moved this outside of the above rotate operation so that the stem bed doesn't get rotated.
-        // To fix the little square being the wrong way when the stem is rotated, I swap the stemLen
-        // and stemWid parameters in StemTransform for rotated keys
 
-        translate([0,0,-.001])skin([for (i=[0:stemLayers-1]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=StemRadius(i, keyID)))]); //outer shell
+      //   // I moved this outside of the above rotate operation so that the stem bed doesn't get rotated.
+      //   // To fix the little square being the wrong way when the stem is rotated, I swap the stemLen
+      //   // and stemWid parameters in StemTransform for rotated keys
+
+      //   translate([0,0,-.001])skin([for (i=[0:stemLayers-1 + stemLayerAddition]) transform(translation(StemTranslation(i,keyID)), rounded_rectangle_profile(StemTransform(i, keyID, StemRot),fn=fn,r=StemRadius(i, keyID)))]); //outer shell
       }
-    //cut for fonts and extra pattern for light?
-     if(visualizeDish == true && Dish == true){
-      #translate([-TopWidShift(keyID),.0001-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(FrontCurve);
-      #translate([-TopWidShift(keyID),-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(BackCurve);
-     }
+      //cut for fonts and extra pattern for light?
+      if(visualizeDish == true && Dish == true){
+        #translate([-TopWidShift(keyID),.0001-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(FrontCurve);
+        #translate([-TopWidShift(keyID),-TopLenShift(keyID),KeyHeight(keyID)-DishHeightDif(keyID)])rotate([0,-YAngleSkew(keyID),0])rotate([0,-90+XAngleSkew(keyID),90-ZAngleSkew(keyID)])skin(BackCurve);
+      }
     }
 
     //Cuts

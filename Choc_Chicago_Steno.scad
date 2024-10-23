@@ -11,14 +11,14 @@ use <skin.scad>
 
 /*Tester */
 keycap_cs(
-  keyID  = 1, //change profile refer to KeyParameters Struct
+  keyID  = 0, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   StemRot = 0, //change stem orientation by deg
   Dish   = true, //turn on dish cut
   Stab   = 0,
   visualizeDish = true, // turn on debug visual of Dish
-  crossSection  = false, // center cut to check internal
+  crossSection  = true, // center cut to check internal
   homeDot = false, //turn on homedots,
   homeBar = false, //turn on homebar,
   Legends = false
@@ -300,7 +300,7 @@ module keycap_cs(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = fa
     }
     if(Legends ==  true){
       #rotate([-XAngleSkew(keyID),YAngleSkew(keyID),ZAngleSkew(keyID)])translate([-1,-5,KeyHeight(keyID)-2.5])linear_extrude(height = 1)text( text = "ver2", font = "Constantia:style=Bold", size = 3, valign = "center", halign = "center" );
-      }
+    }
    //Dish Shape
     if(Dish == true){
      if(visualizeDish == false){
