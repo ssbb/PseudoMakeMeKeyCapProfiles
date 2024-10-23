@@ -70,6 +70,14 @@ available_keycaps = [
     ["cs_t_stem_rot_15_r",  3,  3, 1.00,   0,  0, true,  false, false],
     ["cs_t_stem_rot_2_l",   3,  4, 1.00,   0,  0, false, false, false],
     ["cs_t_stem_rot_2_r",   3,  4, 1.00,   0,  0, true,  false, false],
+
+    // Stem-rotated inner index keys
+    ["cs_r2_1_rot",             1, 0, 1.00, 180,  90, false, false, false],
+    ["cs_r3_1_rot",             1,  1, 1.00,   0,  90, true, false, false],
+    ["cs_r2_lateral_l_rot",     3,  0, 1.00, 180,  90, true,  false, false],
+    ["cs_r2_lateral_r_rot",     3,  0, 1.00, 180,  90, false, false, false],
+    ["cs_r3_lateral_l_rot",     3,  1, 1.00,   0,  90, false, false, false],
+    ["cs_r3_lateral_r_rot",     3,  1, 1.00,   0,  90, true,  false, false],
 ];
 
 function get_keycap(keycap_id) = [
